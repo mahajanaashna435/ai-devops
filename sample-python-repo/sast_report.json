@@ -1,0 +1,110 @@
+{
+  "scan_timestamp": "2026-04-29T13:25:13.696434",
+  "model": "qwen2.5-coder:0.5b",
+  "repo": "/Users/aashnamahajan/Desktop/AI-training/labs/ai-devops/sample-python-repo",
+  "files_scanned": 3,
+  "results": [
+    {
+      "file": "app.py",
+      "issues": [
+        {
+          "id": "SAST-PARSE-ERR",
+          "severity": "INFO",
+          "category": "Parse Error",
+          "line_range": "N/A",
+          "description": "LLM response could not be parsed as JSON.",
+          "recommendation": "Review raw output in sast_report.json under raw_responses.",
+          "_raw": "```json\n{\n  \"file\": \"app.py\",\n  \"issues\": [\n    {\n      \"id\": \"SAST-001\",\n      \"severity\": \"CRITICAL\",\n      \"category\": \"SQL Injection\",\n      \"line_range\": \"23-24\",\n      \"description\": \"No parameterized query in '/user/<username>' route to prevent SQL injection.\",\n      \"recommendation\": \"Use parameterized queries or use prepared statements.\"\n    },\n    {\n      \"id\": \"SAST-001\",\n      \"severity\": \"CRITICAL\",\n      \"category\": \"SQL Injection\",\n      \"line_range\": \"23-24\",\n      \"description\":"
+        }
+      ],
+      "summary": {
+        "total_issues": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "database/db_handler.py",
+      "issues": [
+        {
+          "id": "SAST-PARSE-ERR",
+          "severity": "INFO",
+          "category": "Parse Error",
+          "line_range": "N/A",
+          "description": "LLM response could not be parsed as JSON.",
+          "recommendation": "Review raw output in sast_report.json under raw_responses.",
+          "_raw": "```json\n{\n  \"file\": \"database/db_handler.py\",\n  \"issues\": [\n    {\n      \"id\": \"SAST-001\",\n      \"severity\": \"CRITICAL|HIGH|MEDIUM|LOW|INFO\",\n      \"category\": \"SQL Injection\",\n      \"line_range\": \"23\",\n      \"description\": \"Direct string formatting in SQL query, which can lead to injection attacks.\",\n      \"recommendation\": \"Use parameterized queries or prepared statements to prevent SQL injection.\",\n      \"code\": \"result = execute_query(f'SELECT * FROM users WHERE id = {user_id}')\"\n    },\n    {"
+        }
+      ],
+      "summary": {
+        "total_issues": 0,
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "utils/auth.py",
+      "issues": [
+        {
+          "id": "SAST-001",
+          "severity": "CRITICAL|HIGH|MEDIUM|LOW|INFO",
+          "category": "Security",
+          "line_range": "2-5",
+          "description": "Weak token generation is not secure.",
+          "recommendation": "Use a secure hashing algorithm like bcrypt or Argon2 for generating tokens."
+        },
+        {
+          "id": "SAST-001",
+          "severity": "CRITICAL|HIGH|MEDIUM|LOW|INFO",
+          "category": "Security",
+          "line_range": "7-9",
+          "description": "No expiration check.",
+          "recommendation": "Implement a token expiration mechanism."
+        },
+        {
+          "id": "SAST-001",
+          "severity": "CRITICAL|HIGH|MEDIUM|LOW|INFO",
+          "category": "Security",
+          "line_range": "11-13",
+          "description": "No signature validation.",
+          "recommendation": "Validate token signatures using a trusted signature verification library."
+        },
+        {
+          "id": "SAST-001",
+          "severity": "CRITICAL|HIGH|MEDIUM|LOW|INFO",
+          "category": "Security",
+          "line_range": "15-17",
+          "description": "No input validation.",
+          "recommendation": "Implement input validation for all user inputs."
+        },
+        {
+          "id": "SAST-001",
+          "severity": "CRITICAL|HIGH|MEDIUM|LOW|INFO",
+          "category": "Security",
+          "line_range": "21-23",
+          "description": "Insecure network binding.",
+          "recommendation": "Use secure network protocols like HTTPS."
+        },
+        {
+          "id": "SAST-001",
+          "severity": "CRITICAL|HIGH|MEDIUM|LOW|INFO",
+          "category": "Security",
+          "line_range": "25-27",
+          "description": "Plaintext password storage.",
+          "recommendation": "Use secure vaults or encryption."
+        }
+      ],
+      "summary": {
+        "total_issues": 10,
+        "critical": 3,
+        "high": 4,
+        "medium": 5,
+        "low": 6
+      }
+    }
+  ]
+}
